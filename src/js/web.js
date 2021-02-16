@@ -4,13 +4,20 @@ let blockDiv = document.querySelector('div'),
   textArea = document.querySelector('textarea')
 
 // header number task
-headingH3.textContent = `TASK 2`
+headingH3.textContent = `TASK 3`
 // description task
-descriptionTask.textContent = `В функцию передаеться целое положительное число. Необходимо сделать так, чтобы функция возвращала сумму цифр в переданном числе.`
+descriptionTask.textContent = `Написать функцию, в которую передается целое число. Функция должна вывести горку как показано в примере с тем числом линий, которое переданно в параметр функции.`
 // code task
-textArea.textContent = `function sumDigits(num) {
-	//...
+textArea.value = `function printHill(lines) {
+	
 }
-console.log(sumDigits(123)) // 6
-console.log(sumDigits(9045)) // 18
-console.log(sumDigits(3)) // 3`
+
+printHill(5)
+
+должно получиться:
+
+#
+##
+###
+####
+#####`
