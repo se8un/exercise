@@ -1,23 +1,24 @@
-let blockDiv = document.querySelector('div'),
-  headingH3 = document.querySelector('h3'),
-  descriptionTask = document.querySelector('p'),
-  textArea = document.querySelector('textarea')
+const BD = document.querySelector('div'),
+  HH = document.querySelector('h3'),
+  DT = document.querySelector('p'),
+  TA = document.querySelector('textarea')
+
+// code task
+TA.value = ``
+
+// description task
+// DT.textContent = ``
 
 // header number task
-headingH3.textContent = `TASK 3`
-// description task
-descriptionTask.textContent = `Написать функцию, в которую передается целое число. Функция должна вывести горку как показано в примере с тем числом линий, которое переданно в параметр функции.`
-// code task
-textArea.value = `function printHill(lines) {
-	
+// HH.textContent = `task`
+
+/* 
+// out console log in HTML (str)
+window.console.log = {
+  log: function (str) {
+    let node = document.createElement('div')
+    node.appendChild(document.createTextNode(str))
+    document.getElementById('myLog').appendChild(node)
+  },
 }
-
-printHill(5)
-
-должно получиться:
-
-#
-##
-###
-####
-#####`
+ */
