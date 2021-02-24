@@ -151,7 +151,6 @@ TA.value = `В функцию передается массив, функция 
  */
 
 // SOLUTION 5
-
 /* 
 // v.1
 function getEven(arr) {
@@ -164,20 +163,18 @@ function getEven(arr) {
   return even
 }
 console.log(getEven([5, 0, -5, 20, 88, 17, -32]))
- */
 
-/* 
 // v.2
 function getEven(arr) {
   return arr.filter(n => !(n % 2))
 }
 console.log(getEven([5, 0, -5, 20, 88, 17, -32]))
  */
-
 //_/_/_/_/
 // TASK 6
 //_/_/_/_/
 
+/* 
 TA.value = `Реализовать функцию сортировки Сталина. Сортировка Сталина - шуточное название, при котором мы должны пройтись по всем элементам с начала и удалить все элементы, которые стоят не по порядку, по итогу необходимо получить отсортированный массив.
 
 function sort(arr) {
@@ -187,11 +184,22 @@ function sort(arr) {
 const arr = [5, 18, 2, -7, 88, 20, 109]
 sort(arr)
 console.log(arr) // [5, 18, 88, 109]`
+ */
 
 // SOLUTION
 
-function sort(arr) {}
+/* 
+function sort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > arr[i + 1]) {
+      arr.splice(i + 1, 1)
+      i--
+    }
+  }
+}
 
 const arr = [5, 18, 2, -7, 88, 20, 109]
 sort(arr)
-console.log(arr) // [5, 18, 88, 109]
+console.table(arr) // [5, 18, 88, 109]
+console.log('123')
+ */
