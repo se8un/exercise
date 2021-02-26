@@ -2,8 +2,53 @@
 
 //_/_/_/_/_/_/_/_/_/_/_/   NOTE   _/_/_/_/_/_/_/_/_/_/_/_/
 
+// определение простых чисел - имеющее ровно два различных натуральных делителя — единицу и самого себя
+// Последовательность простых чисел начинается так:
+// 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199…
+
+// Нейтральный элемент для строк – пустая строка - ''
+// Нейтральный элемент для сложения, вычитания – 0
+// Нейтральный элемент для умножения, деления – 1
+
+//_/_/_/
+
+// console.log(0 || 1) // 1 (|| возвращается первый true)
+// console.log(0 && 1) // 0 (&& возвращается первый false)
+// 0, '', undefined, NaN, null приводятся к false. Эти значения называют falsy.
+// Всё остальное приводится к true
+// console.log('' === false); // => false (по значению не равны)
+// console.log('' == false);  // => true (по типу оба false)
+// 234 || '' // 234
+// undefined || '' // ''
+// 'hex' || '' // 'hex'
+
+// результатом двойного отрицания всегда будет bool. Этим приемом пользуются, чтобы поменять тип данных.
+
+// // висакосный ли год
+// const isLeapYear = year => year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)
+// console.log(isLeapYear(2020)) // true
+// console.log(isLeapYear(2021)) // false
+
+// Приоритет арифметических операций выше логических.Значит, сначала вычисляется арифметическое выражение number % 2, затем результат участвует в логическом сравнении.
+// const isEven = (number) => number % 2 === 0;
+
 // js doc создать описание метода
 /** */
+
+//_/_/_/
+
+/* 
+// Функции-предикаты (или функции-вопросы) отвечают на какой-то вопрос и всегда (без исключений!) возвращают либо true, либо false.
+const isInfant = age => age < 1
+console.log(isInfant(3)) // false
+
+// Предикаты во всех языках принято именовать особым образом для простоты анализа. В JavaScript предикаты, как правило, начинаются с префикса is, has или can, но не ограничены этими словами. Примеры:
+isInfant() //— «младенец ли?»
+hasChildren() //— «есть ли дети?»
+isEmpty() //— «пустой ли?»
+hasErrors() //— «есть ли ошибки?»
+// Функция может считаться предикатом только если она возвращает bool.
+ */
 
 //_/_/_/_/_/_/_/_/_/_/_/   IF ELSE | SWITCH   _/_/_/_/_/_/_/_/_/_/_/_/
 
@@ -16,6 +61,62 @@
 // }
 // // вариант с ИЛИ
 // let defaultName = username || 'Stranger'
+
+//_/_/_/
+
+// switch имеет смысл использовать там, где есть цепочка if else с проверками на равенство
+
+// Внешнее описание, в которое входит ключевое слово switch. Переменная, по значениям которой switch будет выбирать поведение. И фигурные скобки для вариантов выбора.
+
+// Конструкции case и default, внутри которых описывается поведение для разных значений рассматриваемой переменной. Каждый case соответствует if в примере выше. default - это особая ситуация, соответствующая ветке else в условных конструкциях. Как else, указывать default не обязательно (но линтер всегда его просит).
+
+// break нужен для предотвращения «проваливания». Если его не указать, то после выполнения нужного case выполнение перейдет к следующему case, и так либо до ближайшего break, либо до конца switch.
+
+// Фигурные скобки в switch не определяют блок кода, как это было в других местах. Внутри допустим только тот синтаксис, который показан выше. То есть там можно использовать case или default. А вот внутри каждого case (и default) ситуация другая. Здесь можно выполнять любой произвольный код:
+
+/* 
+switch (count) {
+  case 1:
+    // Делаем что-то полезное
+    break
+  case 2:
+    // Делаем что-то полезное
+    break
+  default:
+  // Что-то делаем
+} 
+*/
+
+/* 
+switch (status) {
+  case 'processing': // status == processing
+    // Делаем раз
+    break;
+  case 'paid': // status == paid
+    // Делаем два
+    break;
+  case 'new': // status == new
+    // Делаем три
+    break;
+  default: // else
+    // Делаем четыре
+}
+*/
+
+//_/_/_/
+/* 
+const getNumberExplanation = (num) => {
+	switch (num) {
+	case 7:
+		return 'prime number'
+	case 42:
+		return 'answer for everything'
+	case 666:
+		return 'devil number'
+	default:
+		return null
+}
+} */
 
 //_/_/_/
 
@@ -34,47 +135,7 @@
 
 //_/_/_/_/_/_/_/_/_/_/_/   LOOPS i++  _/_/_/_/_/_/_/_/_/_/_/_/
 
-// // таблица умножения
-// // ф печатает цифры и табами в строку
-// function printLine(n) {
-//   let text = ''
-//   for (let i = 1; i <= 7; i++) {
-//     text += i * n + '\t'
-//   }
-//   console.log(text)
-// }
-// // цикл принимает ф и выводит строки и столбцы
-// for (let i = 1; i <= 5; i++) {
-//   console.log('-'.repeat(50))
-//   printLine(i)
-// }
-
-//_/_/_/
-
-// // цикл for loop
-// for (let counterOne = 1; counterOne < 4; counterOne++) {
-//   console.log(counterOne) // 1 2 3
-// }
-
-//_/_/_/
-
-// // вложеный цикл for nest loop
-// for (let outer = 0; outer < 2; outer += 1) {
-//   for (let inner = 0; inner <= 5; inner += 1) {
-//     console.log(`${outer}-${inner}`)
-//   }
-// }
-
-//_/_/_/
-
-// // цикл while loop
-// let counterTwo = 1
-// while (counterTwo < 4) {
-//   console.log(counterTwo) // 1 2 3
-//   counterTwo++
-// }
-
-//_/_/_/
+// Когда количество итераций известно, предпочтительнее использовать цикл for.
 
 // // цикл for in с Объектами может брать ключ и значение
 // let mobile = { brand: 'Samsung', model: 'Galaxy Note 9' }
@@ -92,6 +153,63 @@
 // for (const fru in fruits) {
 //   console.log(fru) // for in: 0 1 2
 //   console.log(fru) // for of: apple	banana orange
+// }
+
+//_/_/_/
+
+// // таблица умножения
+// // ф печатает цифры и табами в строку
+// function printLine(n) {
+//   let text = ''
+//   for (let i = 1; i <= 7; i++) {
+//     text += i * n + '\t'
+//   }
+//   console.log(text)
+// }
+// // цикл принимает ф и выводит строки и столбцы
+// for (let i = 1; i <= 5; i++) {
+//   console.log('-'.repeat(50))
+//   printLine(i)
+// }
+
+//_/_/_/
+
+// // цикл for
+// for (let counterOne = 1; counterOne < 4; counterOne++) {
+//   console.log(counterOne) // 1 2 3
+// }
+
+//_/_/_/
+
+// // вложеный цикл for
+// for (let outer = 0; outer < 2; outer += 1) {
+//   for (let inner = 0; inner <= 5; inner += 1) {
+//     console.log(`${outer}-${inner}`)
+//   }
+// }
+
+//_/_/_/
+
+// Цикл while идеален для ситуаций, когда количество итераций неизвестно заранее, например, при поиске простого числа. Когда количество итераций известно, предпочтительнее использовать цикл for.
+
+// // сумма чисел от первого до второго вкл
+// const sum = (num1, num2) => {
+//   let res = 0
+//   while (num1 <= num2) {
+//     res += num1
+//     num1++
+//   }
+//   return res
+// }
+// console.log(sum(1, 10)) // 55
+
+//_/_/_/
+
+// // цикл while loop
+// let counterTwo = 1
+// while (counterTwo < 4) {
+//   console.log(counterTwo) // 1 2 3
+//   counterTwo++
 // }
 
 //_/_/_/_/_/_/_/_/_/_/_/   ARRAY []   _/_/_/_/_/_/_/_/_/_/_/_/
@@ -113,10 +231,7 @@
 //_/_/_/
 
 /*
-!методы sort, reverse и splice изменяют исходный массив!
-
-.splice() Отсчитываемое от нуля место в массиве, из которого следует начать удаление элементов. Удаляет элементы из массива и при необходимости вставляет на их место новые элементы, возвращая удаленные элементы. 
-// !методы sort, reverse и splice изменяют исходный массив!
+.splice() Отсчитываемое от нуля место в массиве, из которого следует начать удаление элементов. Удаляет элементы из массива и при необходимости вставляет на их место новые элементы, возвращая удаленные элементы. !splice изменяет исходный массив!
 
 */
 
@@ -163,6 +278,99 @@ Array.prototype.forEach()
 
 //_/_/_/_/_/_/_/_/_/_/_/   STRING '' "" ``  _/_/_/_/_/_/_/_/_/_/_/_/
 
+// сделать букву большой через указаный промежуток
+// // v1
+// const makeItFunny = (str, n) => {
+//   let nStart = n
+//   let res = ''
+//   let i = 0
+//   while (i < str.length) {
+//     if (i === n - 1) {
+//       res += str[i].toUpperCase()
+//       n += nStart
+//     } else {
+//       res += str[i]
+//     }
+//     i++
+//   }
+//   return res
+// }
+// console.log(makeItFunny('I never look back', 3)) // 'I NevEr LooK bAck'
+
+// // v2
+// const makeItFunny = (str, n) => {
+//   let res = ''
+//   let i = 0
+//   while (i < str.length) {
+//     if ((i + 1) % n === 0) {
+//       res += str[i].toUpperCase()
+//     } else {
+//       res += str[i]
+//     }
+//     i++
+//   }
+//   return res
+// }
+// console.log(makeItFunny('I never look back', 3)) // 'I NevEr LooK bAck'
+
+//_/_/_/
+
+/* 
+// принимает строку и символ, возвращающую новую строку, в которой удален переданный символ.
+const filterString = (str, simbol) => {
+  let res = ''
+  let i = 0
+  while (i <= str.length - 1) {
+    if (str[i].toLowerCase() !== simbol.toLowerCase()) {
+      res += str[i]
+    }
+    i++
+  }
+  return res
+}
+const str = 'If I look back I am lost'
+console.log(filterString(str, 'I')) // 'f  look back  am lost') */
+
+//_/_/_/
+
+// // сколько в предложении определенной буквы
+// const countChars = (str, char) => {
+//   let i = 0
+//   let count = 0
+//   while (i < str.length) {
+//     if (str[i].toLowerCase() === char.toLowerCase()) {
+//       count++
+//     }
+//     i++
+//   }
+//   return count
+// }
+
+//_/_/_/
+
+// // три варианта сделать первую букву большой
+// const capitalize = word => word.slice(0, 1).toUpperCase() + word.slice(1)
+// const capitalize = word => word[0].toUpperCase() + word.slice(1)
+// const capitalize = text => `${text[0].toUpperCase()}${text.slice(1)}`
+// console.log(capitalize('aag'))
+
+//_/_/_/
+
+// // 16 значный номер карты скрывает все цифры кроме последних 4
+// const getHiddenCard = (cardNumber, starsCount = 4) => {
+//   const visibleDigits = cardNumber.slice(12)
+//   return visibleDigits.padStart(starsCount + 4, '*')
+// } // ****1011
+
+//_/_/_/
+
+/* 
+// String.prototype.padStart()
+// Дополняет строку "заполнителем" слева, до тех пор пока длина строки не станет равной указанной.Первым параметром функция принимает желаемую длину строки, вторым – заполнитель.
+'5'.padStart(2, '*') // '*5'
+'10'.padStart(4, '+') // '++10'
+ */
+
 /* //_/_/_/
 // СТРОКИ 2020
 // метод trim. trimStart, trimEnd убирает пробелы в строках
@@ -180,8 +388,19 @@ console.log('vk'.padEnd(6, '.com')) // out: vk.com
 //_/_/_/ */
 
 // // поменять буквы местами
+// v1
 // let nameBrienna = 'Brienna'.split('').reverse().join('')
 // console.log(nameBrienna)
+
+// v2
+// const reverseString = str => {
+//   let res = ''
+//   for (let i = 0; i < str.length; i++) {
+//     res = str[i] + res
+//   }
+//   return res
+// }
+// console.log(reverseString('Kilka v Tomate')) // etamoT v akliK
 
 //_/_/_/
 

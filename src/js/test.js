@@ -1,14 +1,24 @@
-function tag(strings, name, age) {
-  const [s1, s2, s3] = strings
-  const ageStr = age > 42 ? 'старшим' : 'младшим'
-  return `${s1}${name}${s2}${ageStr}${s3}` // добавляем чтобы не было в выводе undefined
+// const encrypt = str => {
+//   let res = ''
+//   for (let i = 0; i < str.length; i++) {
+//     if (i === str.length - 1 && str.length % 2 !== 0) {
+//       res += str[i]
+//     } else {
+//       res += (str[i + 1] || '') + str[i]
+//       i++
+//     }
+//   }
+//   return res
+// }
+
+const encrypt = str => {
+  let res = ''
+  for (let i = 0; i < str.length; i += 2) {
+    let nextSymbol = str[i + 1] || ''
+    res += nextSymbol + str[i]
+  }
+  return res
 }
 
-const person = {
-  name: 'Max',
-  age: 50,
-}
-
-const output = tag`Человек по имени ${person.name} являеться ${person.age} в семье!`
-
-console.log(output)
+console.log(encrypt('attack th is!')) // 'taatkc'
+console.log(encrypt('go!')) // 'og!'
