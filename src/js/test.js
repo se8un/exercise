@@ -1,24 +1,21 @@
-// const encrypt = str => {
-//   let res = ''
-//   for (let i = 0; i < str.length; i++) {
-//     if (i === str.length - 1 && str.length % 2 !== 0) {
-//       res += str[i]
-//     } else {
-//       res += (str[i + 1] || '') + str[i]
-//       i++
-//     }
-//   }
-//   return res
-// }
-
-const encrypt = str => {
-  let res = ''
-  for (let i = 0; i < str.length; i += 2) {
-    let nextSymbol = str[i + 1] || ''
-    res += nextSymbol + str[i]
-  }
-  return res
+// геттеры и сеттеры. Методы получения и установки полезны потому, что они предлагают способ перехвата доступа к свойствам и их назначения, а также позволяют выполнять дополнительные действия до того, как эти изменения вступят в силу.
+const myCat = {
+  _name: 'Snickers',
+  get name() {
+    return this._name
+  },
+  set name(newName) {
+    // Проверяем, что newName непустая строка перед установкой в ​​качестве свойства name
+    if (typeof newName === 'string' && newName.length > 0) {
+      this._name = newName
+    } else {
+      console.log('ERROR: name must be a non-empty string')
+    }
+  },
 }
 
-console.log(encrypt('attack th is!')) // 'taatkc'
-console.log(encrypt('go!')) // 'og!'
+console.log(myCat.name) // Snickers
+console.log(myCat._name) // Snickers
+
+console.log(myCat._name) //
+console.log(myCat._name) //
