@@ -1,21 +1,13 @@
-// геттеры и сеттеры. Методы получения и установки полезны потому, что они предлагают способ перехвата доступа к свойствам и их назначения, а также позволяют выполнять дополнительные действия до того, как эти изменения вступят в силу.
-const myCat = {
-  _name: 'Snickers',
-  get name() {
-    return this._name
-  },
-  set name(newName) {
-    // Проверяем, что newName непустая строка перед установкой в ​​качестве свойства name
-    if (typeof newName === 'string' && newName.length > 0) {
-      this._name = newName
-    } else {
-      console.log('ERROR: name must be a non-empty string')
-    }
-  },
-}
+const c3 = [
+  { name: 'ivan', age: 12 },
+  { name: 'masha', age: 23 },
+  { name: 'petya', age: 35 },
+  { name: 'glasha', age: 47 },
+]
 
-console.log(myCat.name) // Snickers
-console.log(myCat._name) // Snickers
-
-console.log(myCat._name) //
-console.log(myCat._name) //
+let b3 = c3.some(item => {
+  if (item.age < 18) {
+    return true
+  }
+})
+console.log(b3) // true
