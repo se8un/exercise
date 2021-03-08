@@ -1,7 +1,34 @@
-// out in html - в JS document.write с тегами h1
-document.write('<h1>в JS document.write с тегами h1</h1>')
+// HTML-ACADEMY
+console.log(document.querySelector('.page')) //поиск тэга по классу page + вывод в консоль
+console.log(document.querySelector('.theme-button')) //поиск тэга по классу theme-button
+
+//скрипт не меняет исходный файл с разметкой, но, выполняя инструкции, меняет страницу прямо в браузере пользователя.
+document.querySelector('.page').classList.remove('light-theme') //найти тег по классу page и удалить в нем класс light-theme
+document.querySelector('.page').classList.add('dark-theme') //Добавляем класс элементу с помощью classList.add
+// или
+let page = document.querySelector('.page')
+page.classList.remove('light-theme')
+page.classList.add('dark-theme')
+
+//Сначала мы находим саму кнопку и сохраняем её в переменную:
+let button = document.querySelector('button')
+//вывод сообщения в консоль:
+button.onclick = function () {
+  console.log('Клик!')
+}
 
 //_/_/_/
+
+// Метод EventTarget.addEventListener() регистрирует определенный обработчик события, вызванного на EventTarget.
+// EventTarget может быть Element, Document, Window, или любым другим объектом, поддерживающим события(таким как XMLHttpRequest).
+
+//_/_/_/
+
+Event.stopPropagation() //Остановка распространения события далее по DOM.
+Event.preventDefault() //Отменяет событие(если его возможно отменить).
+
+// out in html - в JS document.write с тегами h1
+document.write('<h1>в JS document.write с тегами h1</h1>')
 
 // счетчик нажатия на кнопку
 document.querySelector('.button').onclick = () => console.log('нажал')
@@ -17,6 +44,7 @@ if (document.getElementById && document.getElementsByTagName) {
   // далее идёт другой код с использованием возможностей W3CDOM.
   // ….
 }
+
 // Проверить заявленную поддержку различных расширений DOM в конкретном веб-браузере.
 function domImplementationTest() {
   var featureArray = [
